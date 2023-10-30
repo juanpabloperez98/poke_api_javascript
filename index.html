@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    Hola mundo
-    
+
+    <button id="click">Click me</button>
+    <button id="promise">Click me promise</button>
+
 </body>
+<script>
+
+    let boton = document.querySelector('#click')
+    boton.addEventListener('click', () => {
+        alert("Oprimido")
+    })
+
+    let boton2 = document.querySelector('#promise')
+    boton2.addEventListener('click', () => {
+        let promesa = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let exito = true;
+                if (exito) {
+                    resolve(exito)
+                } else {
+                    reject('!Error')
+                }
+            }, 5000)
+        });
+    
+        promesa
+            .then(resultado => console.log(resultado))
+            .catch(error => console.log(resultado))
+            .finally(() => console.log("Fin de la promesa"))
+    })
+
+    
+</script>
+
 </html>
