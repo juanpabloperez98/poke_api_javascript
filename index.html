@@ -15,6 +15,10 @@
     <input type="text" id="input2">
     <button onclick="getvalue()" id="res>">Obtener valor</button>
 
+    <input type="text" id="inputTexto" placeholder="Escribe una cadena de texto">
+    <button id="validarBoton">Validar Texto</button>
+    <p id="resultado"></p>
+
 </body>
 <script>
 
@@ -51,8 +55,8 @@
                 }else{
                     resolve(a+b);
                 }
-            })
-        },10000);
+            },5000)
+        });
     }
 
     function getvalue(){
@@ -62,21 +66,36 @@
         console.log(input2)
         sumapos(parseInt(input1),parseInt(input2))
             .then(resultado => console.log(resultado))
-            .catch(error=> console.log(resultado))
+            .catch(error=> console.log(error))
             .finally(()=>console.log("Fin de la promesa"))
     }
    
 
 
-    function textovalidar(cadena){
-        return new Promise((resolve,reject)=>{
-            if (cadena.lenght > 10){
+    function textovalidar(cadena) {
+        return new Promise((resolve, reject) => {
+            if (cadena.length > 10) {
                 resolve("Texto largo");
-            }else{
+            } else {
                 reject("Texto corto");
             }
         });
     }
+
+    const inputTexto = document.getElementById('inputTexto');
+    const validarBoton = document.getElementById('validarBoton');
+    const resultado = document.getElementById('resultado');
+
+    validarBoton.addEventListener('click', () => {
+        const texto = inputTexto.value;
+        textovalidar(texto)
+            .then((message) => {
+                resultado.textContent = message;
+            })
+            .catch((error) => {
+                resultado.textContent = error;
+            });
+    });
 
     
 </script>
