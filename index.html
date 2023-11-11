@@ -11,11 +11,15 @@
         <h1>Pokemon Search</h1>
         <div>
             <label for="pokemonInput">Buscar pokemon: </label>
-            <input type="text" id="pokenmonInput" placeholder="Ingresa el nombre del pokemon">
+            <input type="text" id="pokemonInput" placeholder="Ingresa el nombre del pokemon">
             <button onclick="searchPokemon()">Buscar</button>
         </div>
     </div>
     <script>
+        function searchPokemon(){
+            let poke=document.getElementById("pokemonInput").value
+            alert("Se esta buscando: "+poke) 
+        }
 
     </script>
 </body>
