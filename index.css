@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fuentes/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body{
+    font-family: 'Roboto';
+    background-color: rgb(243, 234, 234);
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.1);   
+}
+
+.container > div {
+    padding-bottom: 20px;
+}
+
+input{
+    padding: 8px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+#pokemonInfo{
+    margin-top: 20px;
+}
