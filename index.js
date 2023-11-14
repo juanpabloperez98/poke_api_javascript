@@ -26,3 +26,8 @@ function displayError() {
     pokemonInfoElement.innerHTML = `<p>No se encontro información del pokemon</p>`
 }
 
+
+function hol(){
+    
+}
+
