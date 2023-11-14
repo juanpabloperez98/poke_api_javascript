@@ -1,33 +1,30 @@
-async function searchPokemon(){
-    let poke=document.getElementById("pokemonInput").value
-    poke = poke.toLowerCase()
+async function searchEpisode() {
+    let episodeNumber = document.getElementById("episodeInput").value;
+
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`)
+        const response = await fetch(`https://rickandmortyapi.com/api/episode/${episodeNumber}`);
         const data = await response.json();
         console.log(data);
-        displayPokemonInfo(data)
+        displayEpisodeInfo(data);
     } catch (error) {
         displayError();
     }
 }
 
-function displayPokemonInfo(pokeData) {
-    const pokemonInfoElement = document.getElementById('pokemonInfo');
-        pokemonInfoElement.innerHTML = `
-        <h2>Nombre: ${pokeData.name}</h2>
-        <img src="${pokeData.sprites.front_default}" alt="${pokeData.name}">
-        <p>Altura: ${pokeData.height}</p>
-        <p>Ancho: ${pokeData.weight}</p>
-        `
+function displayEpisodeInfo(episodeData) {
+    const episodeInfoElement = document.getElementById('episodeInfo');
+    episodeInfoElement.innerHTML = `
+        <h2>Nombre del episodio: ${episodeData.name}</h2>
+        <p>Fecha de salida al aire: ${episodeData.air_date}</p>
+        <p>Episodio: ${episodeData.episode}</p>
+    `;
 }
 
 function displayError() {
-    const pokemonInfoElement = document.getElementById('pokemonInfo');
-    pokemonInfoElement.innerHTML = `<p>No se encontro información del pokemon</p>`
+    const episodeInfoElement = document.getElementById('episodeInfo');
+    episodeInfoElement.innerHTML = `<p>No se encontro el numero del episodio</p>`;
 }
 
 
-function hol(){
-    
-}
+
 
